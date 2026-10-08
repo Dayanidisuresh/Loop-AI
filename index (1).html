@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loop AI — Enterprise AI Data Infrastructure & Specialised Workforce Solutions</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f7ff',
+                            100: '#e0effe',
+                            500: '#0284c7',
+                            600: '#026aa2',
+                            900: '#0c4a6e',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .glass-card {
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-nav {
+            background: rgba(2, 6, 23, 0.85);
+            backdrop-filter: blur(16px);
+        }
+        .modal-active {
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 antialiased selection:bg-sky-500 selection:text-white">
+
+    <!-- NAVIGATION BAR -->
+    <header class="fixed top-0 w-full z-50 glass-nav border-b border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- BRAND LOGO: LOOP WITH INFINITY SYMBOL + EXACTLY 'AI' IN THE MIDDLE -->
+            <div class="flex items-center gap-3.5 cursor-pointer" onclick="window.scrollTo({top:0, behavior:'smooth'})">
+                <div class="relative flex items-center justify-center px-2 py-1">
+                    <!-- SVG Infinity Symbol with 'AI' centered in the loop crossover -->
+                    <svg class="w-16 h-10 text-sky-400 drop-shadow-[0_0_12px_rgba(56,189,248,0.5)]" viewBox="0 0 120 70" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M 35,35 C 15,12 2,22 2,35 C 2,48 15,58 35,35 C 55,12 65,12 85,35 C 105,58 118,48 118,35 C 118,22 105,12 85,35 C 65,58 55,58 35,35 Z" />
+                    </svg>
+                    <!-- AI Text perfectly positioned in the middle junction -->
+                    <span class="absolute inset-0 flex items-center justify-center font-black text-xs tracking-widest text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">AI</span>
+                </div>
+                <div>
+                    <span class="text-xl font-extrabold tracking-wider text-white block leading-none">LOOP <span class="text-sky-400">AI</span></span>
+                    <span class="text-[9px] text-slate-400 font-semibold tracking-widest uppercase">Operations & Workforce</span>
+                </div>
+            </div>
+
+            <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-slate-300">
+                <a href="#services" class="hover:text-sky-400 transition-colors">Taxonomy Catalog</a>
+                <a href="#workforce" class="hover:text-sky-400 transition-colors text-sky-400 font-semibold">Global Manpower</a>
+                <a href="#platform" class="hover:text-sky-400 transition-colors">Platform Engines</a>
+                <a href="#compliance" class="hover:text-sky-400 transition-colors">Compliance</a>
+                <a href="#location" class="hover:text-sky-400 transition-colors">Location</a>
+            </nav>
+
+            <div class="flex items-center gap-4">
+                <a href="#estimator" class="hidden sm:inline-flex px-4 py-2 rounded-lg text-xs font-semibold text-sky-400 border border-sky-500/30 hover:bg-sky-500/10 transition-all">
+                    SLA Estimator
+                </a>
+                <a href="#contact" class="px-5 py-2.5 rounded-lg text-sm font-semibold text-white bg-sky-600 hover:bg-sky-500 transition-all shadow-lg shadow-sky-600/30">
+                    Request Proposal
+                </a>
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="lg:hidden text-slate-300 hover:text-white focus:outline-none p-2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer -->
+        <div id="mobile-drawer" class="hidden lg:hidden bg-slate-900 border-b border-slate-800 px-6 py-6 space-y-4 text-sm font-medium">
+            <a href="#services" class="block text-slate-300 hover:text-sky-400 mobile-link">Taxonomy Catalog</a>
+            <a href="#workforce" class="block text-sky-400 font-semibold mobile-link">Global Manpower & Workforce</a>
+            <a href="#platform" class="block text-slate-300 hover:text-sky-400 mobile-link">Platform Engines</a>
+            <a href="#compliance" class="block text-slate-300 hover:text-sky-400 mobile-link">Compliance</a>
+            <a href="#location" class="block text-slate-300 hover:text-sky-400 mobile-link">Location — Singapore</a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative pt-32 pb-24 md:pt-48 md:pb-36 overflow-hidden border-b border-slate-800">
+        <!-- Background Imagery -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=2000&q=80" alt="Global Manpower and AI Teams" class="w-full h-full object-cover opacity-15">
+            <div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/90 to-slate-950/70"></div>
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,_rgba(14,165,233,0.2),_transparent_60%)]"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="max-w-3xl">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-500/10 border border-sky-500/30 text-sky-400 text-xs font-semibold mb-6 shadow-inner">
+                    <span class="h-2 w-2 rounded-full bg-sky-400 animate-pulse"></span>
+                    Managed Global Workforce | 50,000+ Specialized Annotators & Field Operatives
+                </div>
+                <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white mb-6 leading-tight">
+                    Infinite Data Loops Powered by Elite Human Manpower
+                </h1>
+                <p class="text-lg text-slate-300 mb-8 leading-relaxed">
+                    Loop AI combines automated data pipelines with expert human-in-the-loop workforces across 22+ Indic languages, Tier 1-3 field operations, and specialized engineering domains for multimodal AI training.
+                </p>
+                <div class="flex flex-wrap items-center gap-4">
+                    <a href="#workforce" class="px-6 py-3.5 rounded-xl font-semibold text-white bg-sky-600 hover:bg-sky-500 transition-all shadow-xl shadow-sky-600/30 flex items-center gap-2">
+                        Explore Workforce Pods
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </a>
+                    <a href="#contact" class="px-6 py-3.5 rounded-xl font-semibold text-slate-300 bg-slate-900 border border-slate-700 hover:bg-slate-800 transition-all">
+                        Deploy Manpower Pod
+                    </a>
+                </div>
+            </div>
+
+            <!-- METRIC STAT HIGHLIGHTS -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 pt-12 border-t border-slate-800/80">
+                <div class="p-4 rounded-xl bg-slate-900/40 border border-slate-800/50">
+                    <div class="text-3xl font-extrabold text-sky-400 mb-1">50,000+</div>
+                    <div class="text-xs text-slate-400">Vetted Manpower Pool</div>
+                </div>
+                <div class="p-4 rounded-xl bg-slate-900/40 border border-slate-800/50">
+                    <div class="text-3xl font-extrabold text-sky-400 mb-1">98.2%+</div>
+                    <div class="text-xs text-slate-400">Inter-Annotator Agreement (IAA)</div>
+                </div>
+                <div class="p-4 rounded-xl bg-slate-900/40 border border-slate-800/50">
+                    <div class="text-3xl font-extrabold text-sky-400 mb-1">22+</div>
+                    <div class="text-xs text-slate-400">Indic & Global Languages</div>
+                </div>
+                <div class="p-4 rounded-xl bg-slate-900/40 border border-slate-800/50">
+                    <div class="text-3xl font-extrabold text-sky-400 mb-1">3,000+</div>
+                    <div class="text-xs text-slate-400">Device Testing Lab Experts</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DEDICATED GLOBAL MANPOWER & WORKFORCE SECTION -->
+    <section id="workforce" class="py-24 bg-slate-900/40 border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-bold text-sky-400 tracking-wider uppercase mb-2">Global Manpower Infrastructure</h2>
+                <h3 class="text-3xl sm:text-4xl font-extrabold text-white mb-4">Dedicated Human-in-the-Loop Workforce Pods</h3>
+                <p class="text-slate-400 text-sm">High-precision AI training requires elite human intelligence. Loop AI deploys fully managed, background-verified workforce tiers tailored to your exact data requirements.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                <!-- Pod Tier 1 -->
+                <div class="glass-card p-8 rounded-3xl border border-slate-800 flex flex-col justify-between">
+                    <div>
+                        <div class="inline-block px-3 py-1 rounded bg-sky-500/10 text-sky-400 font-mono text-xs font-bold mb-4">TIER-1 SPECIALISTS</div>
+                        <h4 class="text-xl font-bold text-white mb-3">Linguistic & GenAI Experts (SMEs)</h4>
+                        <p class="text-xs text-slate-300 leading-relaxed mb-6">
+                            Advanced degree holders, translators, subject matter experts, and prompt engineers executing RLHF preference ranking, complex reasoning audits, and Indic language localization.
+                        </p>
+                        <ul class="space-y-2.5 text-xs text-slate-400 mb-8">
+                            <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-sky-400"></span>22+ Indic & global dialects</li>
+                            <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-sky-400"></span>Domain expert validation (Law, Med, Code)</li>
+                            <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-sky-400"></span>Double-blind consensus verification</li>
+                        </ul>
+                    </div>
+                    <a href="#contact" class="w-full py-2.5 rounded-xl bg-slate-800 hover:bg-sky-600 text-white text-xs font-semibold text-center transition-all">Request SME Pod</a>
+                </div>
+
+                <!-- Pod Tier 2 -->
+                <div class="glass-card p-8 rounded-3xl border border-sky-500/40 flex flex-col justify-between relative shadow-xl shadow-sky-950/50">
+                    <div class="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full bg-sky-600 text-white text-[10px] font-bold uppercase tracking-wider">Most Popular</div>
+                    <div>
+                        <div class="inline-block px-3 py-1 rounded bg-sky-500/10 text-sky-400 font-mono text-xs font-bold mb-4">TIER-2 ANNOTATORS</div>
+                        <h4 class="text-xl font-bold text-white mb-3">Multi-Sensor Annotation Crews</h4>
+                        <p class="text-xs text-slate-300 leading-relaxed mb-6">
+                            Dedicated data labelers skilled in 3D LiDAR point-cloud segmentation, bounding boxes, video action tagging, and multi-sensor fusion calibration for autonomous systems.
+                        </p>
+                        <ul class="space-y-2.5 text-xs text-slate-400 mb-8">
+                            <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-sky-400"></span>25+ tool suites (COCO, YOLO, KITTI)</li>
+                            <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-sky-400"></span>Real-time IAA quality tracking</li>
+                            <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-sky-400"></span>Scalable up to 500+ active labelers</li>
+                        </ul>
+                    </div>
+                    <a href="#contact" class="w-full py-2.5 rounded-xl bg-sky-600 hover:bg-sky-500 text-white text-xs font-semibold text-center transition-all">Deploy Annotation Pod</a>
+                </div>
+
+                <!-- Pod Tier 3 -->
+                <div class="glass-card p-8 rounded-3xl border border-slate-800 flex flex-col justify-between">
+                    <div>
+                        <div class="inline-block px-3 py-1 rounded bg-sky-500/10 text-sky-400 font-mono text-xs font-bold mb-4">TIER-3 FIELD CREWS</div>
+                        <h4 class="text-xl font-bold text-white mb-3">On-Ground Field & Device Operatives</h4>
+                        <p class="text-xs text-slate-300 leading-relaxed mb-6">
+                            Mobile field agents distributed across Tier 1, 2, and 3 locations executing retail audits, network drive testing, egocentric video capture, and physical device testing.
+                        </p>
+                        <ul class="space-y-2.5 text-xs text-slate-400 mb-8">
+                            <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-sky-400"></span>GPS-verified geofence collection</li>
+                            <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-sky-400"></span>3,000+ real device hardware lab</li>
+                            <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-sky-400"></span>DPDP Act compliant consent logging</li>
+                        </ul>
+                    </div>
+                    <a href="#contact" class="w-full py-2.5 rounded-xl bg-slate-800 hover:bg-sky-600 text-white text-xs font-semibold text-center transition-all">Hire Field Operatives</a>
+                </div>
+            </div>
+
+            <!-- Workforce Compliance & Onboarding Banner -->
+            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+                <div>
+                    <h4 class="text-base font-bold text-white mb-1">Rigorous Manpower Vetting & Security</h4>
+                    <p class="text-xs text-slate-400">Every workforce contributor undergoes automated KYC, digital NDA execution, and continuous quality audits before deployment.</p>
+                </div>
+                <a href="#compliance" class="px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-sky-400 text-xs font-semibold border border-slate-700 whitespace-nowrap transition-all">
+                    View Security Standards
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE SOURCING CATEGORIES -->
+    <section id="services" class="py-24 bg-slate-950">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                <div>
+                    <h2 class="text-xs font-bold text-sky-400 tracking-wider uppercase mb-2">Service Catalog</h2>
+                    <h3 class="text-3xl sm:text-4xl font-extrabold text-white">10 Sourcing & Data Loops</h3>
+                </div>
+                <!-- Interactive Filter Buttons -->
+                <div class="flex flex-wrap gap-2 mt-6 md:mt-0" id="filter-container">
+                    <button class="filter-btn px-4 py-2 rounded-lg text-xs font-semibold bg-sky-600 text-white transition-all" data-filter="all">All (10)</button>
+                    <button class="filter-btn px-4 py-2 rounded-lg text-xs font-semibold bg-slate-900 text-slate-400 border border-slate-800 hover:text-white transition-all" data-filter="field">Field & Physical AI</button>
+                    <button class="filter-btn px-4 py-2 rounded-lg text-xs font-semibold bg-slate-900 text-slate-400 border border-slate-800 hover:text-white transition-all" data-filter="vision">Vision & Speech</button>
+                    <button class="filter-btn px-4 py-2 rounded-lg text-xs font-semibold bg-slate-900 text-slate-400 border border-slate-800 hover:text-white transition-all" data-filter="genai">GenAI & Evaluation</button>
+                </div>
+            </div>
+
+            <!-- GRID OF CATEGORIES -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="category-grid">
+
+                <!-- CAT 01: POI Retail -->
+                <div class="category-card bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden hover:border-sky-500/50 transition-all flex flex-col group" data-category="field">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1578916171728-46686eac8d58?auto=format&fit=crop&w=800&q=80" alt="Retail Audit" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-3 left-3 bg-slate-950/80 backdrop-blur border border-slate-700 px-2.5 py-1 rounded text-xs font-mono font-bold text-sky-400">LOOP-01</div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h4 class="text-xl font-bold text-white mb-2">POI – Retail Visit / Audit</h4>
+                            <p class="text-xs text-slate-400 leading-relaxed mb-4">On-ground storefront audits, shelf stock indexing, localized pricing studies, and geofence verification by deployed field manpower.</p>
+                        </div>
+                        <button onclick="openModal('cat-01')" class="w-full py-2.5 rounded-lg bg-slate-800 border border-slate-700 text-xs font-semibold text-slate-200 hover:bg-sky-600 hover:border-sky-500 hover:text-white transition-all flex items-center justify-center gap-2">
+                            View Deliverables & Specs
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- CAT 02: Drive Testing -->
+                <div class="category-card bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden hover:border-sky-500/50 transition-all flex flex-col group" data-category="field">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=800&q=80" alt="Drive Testing" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-3 left-3 bg-slate-950/80 backdrop-blur border border-slate-700 px-2.5 py-1 rounded text-xs font-mono font-bold text-sky-400">LOOP-02</div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h4 class="text-xl font-bold text-white mb-2">POI – Network & Drive Testing</h4>
+                            <p class="text-xs text-slate-400 leading-relaxed mb-4">Cell tower handoff logs, 4G/5G latency profiling, drive-test telemetry, packet loss logging, and coverage mapping by field operatives.</p>
+                        </div>
+                        <button onclick="openModal('cat-02')" class="w-full py-2.5 rounded-lg bg-slate-800 border border-slate-700 text-xs font-semibold text-slate-200 hover:bg-sky-600 hover:border-sky-500 hover:text-white transition-all flex items-center justify-center gap-2">
+                            View Deliverables & Specs
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- CAT 03: Egocentric Video -->
+                <div class="category-card bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden hover:border-sky-500/50 transition-all flex flex-col group" data-category="field">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1593508512255-86ab42a8e620?auto=format&fit=crop&w=800&q=80" alt="Egocentric Smart Glasses" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-3 left-3 bg-slate-950/80 backdrop-blur border border-slate-700 px-2.5 py-1 rounded text-xs font-mono font-bold text-sky-400">LOOP-03</div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h4 class="text-xl font-bold text-white mb-2">Egocentric Video & Human Demo</h4>
+                            <p class="text-xs text-slate-400 leading-relaxed mb-4">First-person GoPro/smart-glasses capture of daily activities, tool handling, and complex manual industrial procedures by trained subjects.</p>
+                        </div>
+                        <button onclick="openModal('cat-03')" class="w-full py-2.5 rounded-lg bg-slate-800 border border-slate-700 text-xs font-semibold text-slate-200 hover:bg-sky-600 hover:border-sky-500 hover:text-white transition-all flex items-center justify-center gap-2">
+                            View Deliverables & Specs
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- CAT 04: Image / Video Multimodal -->
+                <div class="category-card bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden hover:border-sky-500/50 transition-all flex flex-col group" data-category="vision">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1508739773434-c26b3d09e071?auto=format&fit=crop&w=800&q=80" alt="Multimodal Camera" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-3 left-3 bg-slate-950/80 backdrop-blur border border-slate-700 px-2.5 py-1 rounded text-xs font-mono font-bold text-sky-400">LOOP-04</div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h4 class="text-xl font-bold text-white mb-2">Image / Video / Multimodal</h4>
+                            <p class="text-xs text-slate-400 leading-relaxed mb-4">Large-scale atmospheric visual capture across day/night, weather variances, CCTV feeds, and edge-case scene anomalies.</p>
+                        </div>
+                        <button onclick="openModal('cat-04')" class="w-full py-2.5 rounded-lg bg-slate-800 border border-slate-700 text-xs font-semibold text-slate-200 hover:bg-sky-600 hover:border-sky-500 hover:text-white transition-all flex items-center justify-center gap-2">
+                            View Deliverables & Specs
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- CAT 05: Speech Audio -->
+                <div class="category-card bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden hover:border-sky-500/50 transition-all flex flex-col group" data-category="vision">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&w=800&q=80" alt="Speech Recording" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-3 left-3 bg-slate-950/80 backdrop-blur border border-slate-700 px-2.5 py-1 rounded text-xs font-mono font-bold text-sky-400">LOOP-05</div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h4 class="text-xl font-bold text-white mb-2">Speech & Audio Data Collection</h4>
+                            <p class="text-xs text-slate-400 leading-relaxed mb-4">Acoustic gathering across 22+ Indic dialects by native speakers, noisy environment speech, trigger-words, and domain vocabulary.</p>
+                        </div>
+                        <button onclick="openModal('cat-05')" class="w-full py-2.5 rounded-lg bg-slate-800 border border-slate-700 text-xs font-semibold text-slate-200 hover:bg-sky-600 hover:border-sky-500 hover:text-white transition-all flex items-center justify-center gap-2">
+                            View Deliverables & Specs
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- CAT 06: Lip Sync -->
+                <div class="category-card bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden hover:border-sky-500/50 transition-all flex flex-col group" data-category="vision">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=800&q=80" alt="Studio Filming" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-3 left-3 bg-slate-950/80 backdrop-blur border border-slate-700 px-2.5 py-1 rounded text-xs font-mono font-bold text-sky-400">LOOP-06</div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h4 class="text-xl font-bold text-white mb-2">Lip Sync / Audio-Visual Speech</h4>
+                            <p class="text-xs text-slate-400 leading-relaxed mb-4">Phoneme-viseme paired video, synchronized 60-120 FPS facial keypoint capture, and speech-to-avatar alignment suites.</p>
+                        </div>
+                        <button onclick="openModal('cat-06')" class="w-full py-2.5 rounded-lg bg-slate-800 border border-slate-700 text-xs font-semibold text-slate-200 hover:bg-sky-600 hover:border-sky-500 hover:text-white transition-all flex items-center justify-center gap-2">
+                            View Deliverables & Specs
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- CAT 07: Physical AI Robotics -->
+                <div class="category-card bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden hover:border-sky-500/50 transition-all flex flex-col group" data-category="field">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=800&q=80" alt="Robotics Teleoperation" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-3 left-3 bg-slate-950/80 backdrop-blur border border-slate-700 px-2.5 py-1 rounded text-xs font-mono font-bold text-sky-400">LOOP-07</div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h4 class="text-xl font-bold text-white mb-2">Physical AI & Robotics Trajectories</h4>
+                            <p class="text-xs text-slate-400 leading-relaxed mb-4">Robotic pick-and-place teleoperation, force-torque haptic logging, hand-object telemetry, and VLA model ground-truth creation.</p>
+                        </div>
+                        <button onclick="openModal('cat-07')" class="w-full py-2.5 rounded-lg bg-slate-800 border border-slate-700 text-xs font-semibold text-slate-200 hover:bg-sky-600 hover:border-sky-500 hover:text-white transition-all flex items-center justify-center gap-2">
+                            View Deliverables & Specs
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- CAT 08: Data Annotation -->
+                <div class="category-card bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden hover:border-sky-500/50 transition-all flex flex-col group" data-category="vision">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80" alt="3D Point Cloud Annotation" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-3 left-3 bg-slate-950/80 backdrop-blur border border-slate-700 px-2.5 py-1 rounded text-xs font-mono font-bold text-sky-400">LOOP-08</div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h4 class="text-xl font-bold text-white mb-2">Data Annotation & Labeling</h4>
+                            <p class="text-xs text-slate-400 leading-relaxed mb-4">3D LiDAR point clouds, Radar tracks, bounding boxes, polygon segmentation, and multi-sensor fusion calibration labeling.</p>
+                        </div>
+                        <button onclick="openModal('cat-08')" class="w-full py-2.5 rounded-lg bg-slate-800 border border-slate-700 text-xs font-semibold text-slate-200 hover:bg-sky-600 hover:border-sky-500 hover:text-white transition-all flex items-center justify-center gap-2">
+                            View Deliverables & Specs
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- CAT 09: GenAI LLM -->
+                <div class="category-card bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden hover:border-sky-500/50 transition-all flex flex-col group" data-category="genai">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80" alt="Generative AI RLHF" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-3 left-3 bg-slate-950/80 backdrop-blur border border-slate-700 px-2.5 py-1 rounded text-xs font-mono font-bold text-sky-400">LOOP-09</div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h4 class="text-xl font-bold text-white mb-2">GenAI / LLM Evaluation & RLHF</h4>
+                            <p class="text-xs text-slate-400 leading-relaxed mb-4">Prompt creation, SxS preference ranking, reward model datasets, hallucination checks, and expert response rewriting.</p>
+                        </div>
+                        <button onclick="openModal('cat-09')" class="w-full py-2.5 rounded-lg bg-slate-800 border border-slate-700 text-xs font-semibold text-slate-200 hover:bg-sky-600 hover:border-sky-500 hover:text-white transition-all flex items-center justify-center gap-2">
+                            View Deliverables & Specs
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- CAT 10: Localization -->
+                <div class="category-card bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden hover:border-sky-500/50 transition-all flex flex-col group" data-category="genai">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Multilingual Localization" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-3 left-3 bg-slate-950/80 backdrop-blur border border-slate-700 px-2.5 py-1 rounded text-xs font-mono font-bold text-sky-400">LOOP-10</div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h4 class="text-xl font-bold text-white mb-2">Localization & Translation</h4>
+                            <p class="text-xs text-slate-400 leading-relaxed mb-4">NMT auditing, cultural sensitivity filtering, product string localization, and LQA across 22+ Indic languages by native speakers.</p>
+                        </div>
+                        <button onclick="openModal('cat-10')" class="w-full py-2.5 rounded-lg bg-slate-800 border border-slate-700 text-xs font-semibold text-slate-200 hover:bg-sky-600 hover:border-sky-500 hover:text-white transition-all flex items-center justify-center gap-2">
+                            View Deliverables & Specs
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE PLATFORM ENGINES SECTION -->
+    <section id="platform" class="py-24 bg-slate-900/60 border-t border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-xs font-bold text-sky-400 tracking-wider uppercase mb-2">Platform Engines</h2>
+                <h3 class="text-3xl font-extrabold text-white mb-4">Loop AI Interactive Engines</h3>
+                <p class="text-slate-400 text-sm">Select an operational loop engine below to inspect its core hardware integrations, data handling protocols, and functional SLAs.</p>
+            </div>
+
+            <!-- Engine Tabs -->
+            <div class="flex flex-wrap justify-center gap-3 mb-12" id="engine-tabs">
+                <button class="engine-tab px-6 py-3 rounded-xl font-semibold text-sm bg-sky-600 text-white shadow-lg shadow-sky-600/20 transition-all" data-engine="01">
+                    01. Field Data Loop Engine
+                </button>
+                <button class="engine-tab px-6 py-3 rounded-xl font-semibold text-sm bg-slate-900 text-slate-400 border border-slate-800 hover:text-white transition-all" data-engine="02">
+                    02. Annotation Loop Engine
+                </button>
+                <button class="engine-tab px-6 py-3 rounded-xl font-semibold text-sm bg-slate-900 text-slate-400 border border-slate-800 hover:text-white transition-all" data-engine="03">
+                    03. RLHF Orchestration Engine
+                </button>
+                <button class="engine-tab px-6 py-3 rounded-xl font-semibold text-sm bg-slate-900 text-slate-400 border border-slate-800 hover:text-white transition-all" data-engine="04">
+                    04. Device Testing Engine
+                </button>
+            </div>
+
+            <!-- Dynamic Engine Display Box -->
+            <div class="glass-card rounded-3xl p-8 lg:p-12 border border-slate-800" id="engine-display">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <div class="inline-block px-3 py-1 rounded bg-sky-500/10 text-sky-400 font-mono text-xs font-bold mb-4" id="engine-tag">ENGINE-01 ARCHITECTURE</div>
+                        <h4 class="text-2xl font-bold text-white mb-4" id="engine-title">Field & Mobile Data Collection Loop</h4>
+                        <p class="text-sm text-slate-300 leading-relaxed mb-6" id="engine-desc">
+                            Orchestrates on-ground contributors across Tier 1, 2, and 3 locations. Features native GPS coordinate verification, cryptographically tied consent logging, and continuous raw asset upload streams into the Loop AI pipeline.
+                        </p>
+                        <div class="space-y-3" id="engine-bullets">
+                            <div class="flex items-center gap-3 text-xs text-slate-300">
+                                <span class="h-2 w-2 rounded-full bg-sky-400"></span>
+                                Embedded telemetry stamps (GPS, Timestamp, Device ID)
+                            </div>
+                            <div class="flex items-center gap-3 text-xs text-slate-300">
+                                <span class="h-2 w-2 rounded-full bg-sky-400"></span>
+                                Multi-mic acoustic & high-FPS video recording suites
+                            </div>
+                            <div class="flex items-center gap-3 text-xs text-slate-300">
+                                <span class="h-2 w-2 rounded-full bg-sky-400"></span>
+                                Real-time field contributor tracking & task dispatch
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative rounded-2xl overflow-hidden h-72 border border-slate-800">
+                        <img id="engine-img" src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1000&q=80" alt="Engine Display" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE SLA & COST ESTIMATOR -->
+    <section id="estimator" class="py-20 bg-slate-900/40 border-t border-b border-slate-800">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-xs font-bold text-sky-400 tracking-wider uppercase mb-2">Interactive Tool</h2>
+                <h3 class="text-3xl font-extrabold text-white mb-3">SLA & Workforce Pod Estimator</h3>
+                <p class="text-slate-400 text-xs">Configure your sourcing requirements to generate an estimated team deployment timeline.</p>
+            </div>
+
+            <div class="glass-card p-8 rounded-3xl border border-slate-800 space-y-6">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-300 mb-2">Category Selection</label>
+                        <select id="calc-category" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-xs text-white focus:border-sky-500 outline-none">
+                            <option value="field">Field Collection / Retail Audit (LOOP-01 to 03)</option>
+                            <option value="multimodal">Multimodal Vision & Speech (LOOP-04 to 06)</option>
+                            <option value="robotics">Physical AI & Robotics (LOOP-07)</option>
+                            <option value="annotation">Multi-Sensor Annotation (LOOP-08)</option>
+                            <option value="genai">GenAI & RLHF Evaluation (LOOP-09 to 10)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-300 mb-2">Target Volume / Workforce Size</label>
+                        <select id="calc-volume" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-xs text-white focus:border-sky-500 outline-none">
+                            <option value="small">Small Pod (1,000–10,000 tasks / 10 Annotators)</option>
+                            <option value="medium">Medium Enterprise (10,000–100,000 tasks / 50 Annotators)</option>
+                            <option value="large">High Scale (100,000+ tasks / 200+ Field Contributors)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="bg-slate-950/80 p-6 rounded-2xl border border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <div>
+                        <div class="text-xs text-slate-400">Estimated Workforce Ramp-Up & SLA:</div>
+                        <div class="text-2xl font-bold text-sky-400" id="calc-result">48 Hours Ramp-Up | 98.5% Accuracy Target</div>
+                    </div>
+                    <a href="#contact" class="px-5 py-2.5 rounded-xl bg-sky-600 hover:bg-sky-500 text-white text-xs font-semibold transition-all whitespace-nowrap">
+                        Lock In Workforce SLA
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMPLIANCE SECTION -->
+    <section id="compliance" class="py-20 bg-slate-950">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-gradient-to-r from-sky-950/40 via-slate-900 to-indigo-950/40 border border-slate-800 rounded-3xl p-8 sm:p-12 flex flex-col lg:flex-row items-center justify-between gap-8">
+                <div class="max-w-xl">
+                    <div class="text-xs font-bold text-sky-400 uppercase tracking-wider mb-2">Data Privacy & Security</div>
+                    <h3 class="text-2xl sm:text-3xl font-bold text-white mb-4">DPDP Act Compliance & Safeguards</h3>
+                    <p class="text-xs text-slate-300 leading-relaxed mb-6">
+                        Every workforce contributor, field recording, and audio capture within Loop AI is cryptographically tied to digital consent records. Automatic PII redaction is performed at point of ingest.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 rounded bg-slate-800 text-[11px] font-semibold text-slate-300 border border-slate-700">DPDP Act Compliance</span>
+                        <span class="px-3 py-1 rounded bg-slate-800 text-[11px] font-semibold text-slate-300 border border-slate-700">AES-256 Encryption</span>
+                        <span class="px-3 py-1 rounded bg-slate-800 text-[11px] font-semibold text-slate-300 border border-slate-700">TLS 1.3 Transmission</span>
+                        <span class="px-3 py-1 rounded bg-slate-800 text-[11px] font-semibold text-slate-300 border border-slate-700">Dual-Blind QA Protocol</span>
+                    </div>
+                </div>
+                <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl w-full lg:w-80 text-center">
+                    <div class="text-4xl font-black text-sky-400 mb-1">98.2%</div>
+                    <div class="text-xs font-semibold text-slate-200 mb-2">Inter-Annotator Agreement Target</div>
+                    <div class="text-[11px] text-slate-400">Golden standard datasets injected continuously for feedback loop quality assurance.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LOCATION: SINGAPORE (CITY-LEVEL MAP, NOT A CLAIMED STREET ADDRESS) -->
+    <section id="location" class="py-20 bg-slate-950 border-t border-slate-800 scroll-mt-20" aria-labelledby="location-heading">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-10">
+                <h2 class="text-xs font-bold text-sky-400 tracking-wider uppercase mb-2">Location</h2>
+                <h3 id="location-heading" class="text-3xl sm:text-4xl font-extrabold text-white mb-4">Find Us in Singapore</h3>
+                <p class="text-sm text-slate-400">Explore our Singapore location on the interactive map below.</p>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch">
+                <div class="glass-card rounded-3xl p-8 border border-slate-800 flex flex-col justify-center gap-5">
+                    <div class="w-12 h-12 rounded-2xl bg-sky-500/10 border border-sky-500/30 flex items-center justify-center" aria-hidden="true">
+                        <svg class="w-6 h-6 text-sky-400" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="text-xs uppercase tracking-widest font-semibold text-sky-400 mb-2">Our Location</p>
+                        <h4 class="text-2xl font-bold text-white mb-2">Singapore</h4>
+                        <p class="text-sm text-slate-400 leading-relaxed">Connect with Loop AI about managed AI operations, data collection, and workforce solutions.</p>
+                    </div>
+                    <a href="https://www.google.com/maps/search/?api=1&amp;query=Singapore" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 bg-sky-600 hover:bg-sky-500 text-white text-sm font-semibold transition-all">
+                        Open in Google Maps
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+                    </a>
+                </div>
+                <div class="lg:col-span-2 rounded-3xl overflow-hidden border border-slate-700 bg-slate-900 min-h-[320px] sm:min-h-[420px] shadow-xl shadow-slate-950/40">
+                    <iframe
+                        title="Google Maps showing Singapore"
+                        src="https://www.google.com/maps?q=Singapore&amp;z=11&amp;output=embed"
+                        class="w-full h-full min-h-[320px] sm:min-h-[420px] border-0"
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT / RFP PROPOSAL FORM -->
+    <section id="contact" class="py-24 bg-slate-900/50 border-t border-slate-800">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-xs font-bold text-sky-400 tracking-wider uppercase mb-2">Get Started</h2>
+                <h3 class="text-3xl font-extrabold text-white mb-3">Request Manpower Pod Proposal</h3>
+                <p class="text-slate-400 text-xs">Deploy dedicated annotation squads or execute specialized field collection campaigns.</p>
+            </div>
+
+            <form id="proposal-form" class="bg-slate-900 border border-slate-800 rounded-3xl p-8 sm:p-10 space-y-6">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-xs font-medium text-slate-400 mb-2">Full Name</label>
+                        <input type="text" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-sky-500" placeholder="John Doe">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-slate-400 mb-2">Corporate Email</label>
+                        <input type="email" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-sky-500" placeholder="john@company.com">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-xs font-medium text-slate-400 mb-2">Primary Sourcing Category</label>
+                        <select class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-xs text-slate-300 focus:outline-none focus:border-sky-500">
+                            <option>LOOP-01: POI – Retail Visit / Audit</option>
+                            <option>LOOP-02: POI – Network / Drive Testing</option>
+                            <option>LOOP-03: Egocentric Video & Human Demo</option>
+                            <option>LOOP-04: Image, Video & Multimodal Collection</option>
+                            <option>LOOP-05: Speech & Audio Data Collection</option>
+                            <option>LOOP-06: Lip Sync & Audio-Visual Capture</option>
+                            <option>LOOP-07: Physical AI & Robotics Data</option>
+                            <option>LOOP-08: Data Annotation & Labeling</option>
+                            <option>LOOP-09: GenAI / LLM Evaluation & RLHF</option>
+                            <option>LOOP-10: Localization & Translation</option>
+                            <option>Managed Workforce / Multi-Category Pod</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-slate-400 mb-2">Workforce Tier Required</label>
+                        <select class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-xs text-slate-300 focus:outline-none focus:border-sky-500">
+                            <option>Tier-1: Linguistic & GenAI Experts (SMEs)</option>
+                            <option>Tier-2: Multi-Sensor Annotation Crews</option>
+                            <option>Tier-3: On-Ground Field & Device Operatives</option>
+                            <option>Custom Multi-Tier Workforce Pod</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-medium text-slate-400 mb-2">Scope & Timeline Details</label>
+                    <textarea rows="4" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-sky-500" placeholder="Specify volume, head count, languages, hardware requirements, or location targets..."></textarea>
+                </div>
+
+                <button type="submit" class="w-full py-4 rounded-xl font-semibold text-white bg-sky-600 hover:bg-sky-500 transition-all shadow-xl shadow-sky-600/30 text-xs">
+                    Submit Manpower Proposal Request to Loop AI
+                </button>
+            </form>
+            <div id="form-success" class="hidden mt-4 p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-center text-xs text-emerald-400 font-semibold">
+                Thank you! Your workforce proposal request has been logged. The Loop AI operations team will contact you within 24 hours.
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-12 border-t border-slate-800 bg-slate-950 text-xs text-slate-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+                <div class="relative flex items-center justify-center px-1">
+                    <svg class="w-10 h-6 text-sky-400" viewBox="0 0 120 70" fill="none" stroke="currentColor" stroke-width="8">
+                        <path d="M 35,35 C 15,12 2,22 2,35 C 2,48 15,58 35,35 C 55,12 65,12 85,35 C 105,58 118,48 118,35 C 118,22 105,12 85,35 C 65,58 55,58 35,35 Z" />
+                    </svg>
+                    <span class="absolute text-[8px] font-black text-white">AI</span>
+                </div>
+                <p>&copy; 2026 Loop AI Operations & Managed Workforce. All rights reserved.</p>
+            </div>
+            <div class="flex items-center gap-6">
+                <a href="#" class="hover:text-slate-400">Privacy Policy</a>
+                <a href="#" class="hover:text-slate-400">DPDP Act Security</a>
+                <a href="#" class="hover:text-slate-400">Platform SLA</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE MODAL DIALOG FOR SPECS -->
+    <div id="spec-modal" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-slate-800 rounded-3xl max-w-2xl w-full p-6 sm:p-8 relative max-h-[90vh] overflow-y-auto">
+            <button onclick="closeModal()" class="absolute top-6 right-6 text-slate-400 hover:text-white">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+            </button>
+            
+            <div class="inline-block px-2.5 py-1 rounded bg-sky-500/10 text-sky-400 font-mono text-xs font-bold mb-3" id="modal-code">LOOP-00</div>
+            <h3 class="text-2xl font-bold text-white mb-2" id="modal-title">Category Title</h3>
+            <p class="text-xs text-slate-300 leading-relaxed mb-6" id="modal-desc">Description goes here...</p>
+
+            <div class="space-y-4 border-t border-slate-800 pt-4">
+                <div>
+                    <h4 class="text-xs font-bold text-sky-400 uppercase tracking-wider mb-1">Manpower & Core Deliverables</h4>
+                    <p class="text-xs text-slate-300" id="modal-deliverables">Deliverables list...</p>
+                </div>
+                <div>
+                    <h4 class="text-xs font-bold text-sky-400 uppercase tracking-wider mb-1">Hardware & Modalities</h4>
+                    <p class="text-xs text-slate-300" id="modal-hardware">Hardware requirements...</p>
+                </div>
+                <div>
+                    <h4 class="text-xs font-bold text-sky-400 uppercase tracking-wider mb-1">Quality Benchmark / SLA</h4>
+                    <p class="text-xs text-slate-300" id="modal-sla">SLA details...</p>
+                </div>
+            </div>
+
+            <div class="mt-8 pt-4 border-t border-slate-800 flex justify-end">
+                <button onclick="closeModal()" class="px-5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-white">Close Details</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT FOR INTERACTIVITY -->
+    <script>
+        // Category Specs Data
+        const categorySpecs = {
+            'cat-01': {
+                code: 'LOOP-01: POI RETAIL',
+                title: 'POI – Retail Visit / Audit',
+                desc: 'On-ground retail audits and commercial spatial validation executed across distributed retail environments in Tier 1–3 cities by our field manpower pods.',
+                deliverables: 'Geocoded storefront photos, planogram shelf-depth index, localized price mapping, JSON coordinate feeds collected by field agents.',
+                hardware: 'Mobile smartphone camera telemetry, embedded GPS stamps, timestamp verification tools.',
+                sla: '99.5% geofence accuracy; <24hr field audit report turnaround.'
+            },
+            'cat-02': {
+                code: 'LOOP-02: NETWORK TESTING',
+                title: 'POI – Network & Drive Testing',
+                desc: 'Pedestrian and vehicular drive testing along targeted routes by field operatives to measure signal propagation and digital app latency.',
+                deliverables: '4G/5G signal strength logs, cell tower handoff trace files, latency heatmaps, packet-loss reports.',
+                hardware: 'OBD-II vehicle loggers, multi-carrier test phones, custom RF telemetry rigs.',
+                sla: 'Zero packet loss; continuous sub-second telemetry logging.'
+            },
+            'cat-03': {
+                code: 'LOOP-03: EGOCENTRIC VIDEO',
+                title: 'Egocentric Video & Human Demonstration',
+                desc: 'First-person perspective capture of human subjects executing complex daily tasks and industrial tool handling.',
+                deliverables: 'Dual-perspective synchronized video, frame-by-frame action sequence tags, spatial audio streams.',
+                hardware: 'Smart glasses (Meta Ray-Ban), chest/head-mounted GoPro units, binaural spatial mic arrays.',
+                sla: '100% video-audio sync; frame-accurate step-by-step metadata tagging.'
+            },
+            'cat-04': {
+                code: 'LOOP-04: MULTIMODAL VISION',
+                title: 'Image, Video & Multimodal Collection',
+                desc: 'Real-world visual data collection across variable weather, atmospheric, and demographic conditions for object detection models.',
+                deliverables: '4K raw and processed imagery, CCTV pedestrian feeds, infrared edge-case feeds, EXIF metadata files.',
+                hardware: 'Wide-angle RGB cameras, night-vision/thermal sensors, fixed CCTV arrays.',
+                sla: '100% PII anonymized (face & license plate blurring at ingest).'
+            },
+            'cat-05': {
+                code: 'LOOP-05: SPEECH & AUDIO',
+                title: 'Speech & Audio Data Collection',
+                desc: 'Acoustic gathering across 22+ Indic dialects by native speakers covering varied noise floors, age groups, and domain vocabulary.',
+                deliverables: 'Uncompressed WAV audio corpora, orthographic transcriptions, phoneme time-alignment files.',
+                hardware: 'Multi-microphone mobile arrays, studio-grade condenser setups, directional lapel mics.',
+                sla: 'Lossless audio fidelity; >99% transcription accuracy.'
+            },
+            'cat-06': {
+                code: 'LOOP-06: LIP SYNC & AV',
+                title: 'Lip Sync & Audio-Visual Speech',
+                desc: 'High-speed studio filming capturing facial keypoints and speech alignment for generative AI avatar models.',
+                deliverables: 'Time-aligned high-FPS video/audio, viseme-phoneme matrices, 3D facial mesh overlays.',
+                hardware: 'Studio lighting grids, 60–120 FPS cameras, directional lapel mics.',
+                sla: 'Sub-millisecond audio-visual synchronization.'
+            },
+            'cat-07': {
+                code: 'LOOP-07: PHYSICAL AI',
+                title: 'Physical AI & Robotics Trajectories',
+                desc: 'Kinematic and sensory trajectory logging for Vision-Language-Action (VLA) models and humanoid spatial agents operated by roboticists.',
+                deliverables: 'Robotic pick-and-place trajectories, force-torque feedback logs, 3D spatial trajectory files.',
+                hardware: 'Haptic gloves, teleoperation rigs, IMU tracking units, depth sensors.',
+                sla: 'Multi-axis force/torque synchronization at 100Hz+ sampling rate.'
+            },
+            'cat-08': {
+                code: 'LOOP-08: ANNOTATION',
+                title: 'Data Annotation & Labeling',
+                desc: 'Multi-sensor data labeling across 25+ data formats including point-cloud LiDAR, Radar, and bounding boxes by Tier-2 annotation crews.',
+                deliverables: 'COCO, YOLO, Pascal VOC, KITTI JSON annotation files with dual-blind QA verification.',
+                hardware: '2D/3D annotation toolframes, LiDAR/Radar point-cloud calibration suites.',
+                sla: '>98.2% Inter-Annotator Agreement (IAA) threshold.'
+            },
+            'cat-09': {
+                code: 'LOOP-09: GENAI EVALUATION',
+                title: 'GenAI / LLM Evaluation & RLHF',
+                desc: 'Human-in-the-loop auditing, prompt crafting, and RLHF reward modeling for foundation language models by Tier-1 SME specialists.',
+                deliverables: 'Multi-turn prompt-response datasets, SxS preference rankings, factuality audits, JSON export.',
+                hardware: 'Web-based double-blind rating portals, consensus calculation engines.',
+                sla: 'L3 Subject Matter Expert (SME) audited outputs.'
+            },
+            'cat-10': {
+                code: 'LOOP-10: LOCALIZATION',
+                title: 'Localization & Translation Services',
+                desc: 'Linguistic, cultural, and contextual adaptation for enterprise AI platforms across 22+ Indic dialects by native speakers.',
+                deliverables: 'Bilingual parallel text corpora, localized UI strings, LQA compliance reports.',
+                hardware: 'Bilingual parallel text suites, audio-transcription alignment tools.',
+                sla: '100% native linguistic QA review and cultural toxicity removal.'
+            }
+        };
+
+        // Engine Tabs Data
+        const engineData = {
+            '01': {
+                tag: 'ENGINE-01 ARCHITECTURE',
+                title: 'Field & Mobile Data Collection Loop',
+                desc: 'Orchestrates on-ground contributors across Tier 1, 2, and 3 locations. Features native GPS coordinate verification, cryptographically tied consent logging, and continuous raw asset upload streams into the Loop AI pipeline.',
+                bullets: [
+                    'Embedded telemetry stamps (GPS, Timestamp, Device ID)',
+                    'Multi-mic acoustic & high-FPS video recording suites',
+                    'Real-time field contributor tracking & task dispatch'
+                ],
+                img: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1000&q=80'
+            },
+            '02': {
+                tag: 'ENGINE-02 ARCHITECTURE',
+                title: 'Multi-Sensor Data Annotation Loop',
+                desc: 'Powers 3D point-cloud LiDAR segmentation, Radar tracking, and 25+ data labeling formats with automated pre-labeling tools and dual-blind consensus checking.',
+                bullets: [
+                    '3D LiDAR & Radar point-cloud fusion capabilities',
+                    'Automatic pre-labeling model integration',
+                    'Inter-Annotator Agreement (IAA) quality analytics dashboard'
+                ],
+                img: 'https://images.unsplash.com/photo-1508739773434-c26b3d09e071?auto=format&fit=crop&w=1000&q=80'
+            },
+            '03': {
+                tag: 'ENGINE-03 ARCHITECTURE',
+                title: 'RLHF Task Orchestration & Evaluation Engine',
+                desc: 'Handles multi-stage human-in-the-loop task routing, RLHF preference ranking pipelines, localization reviews, and agentic AI escalation loops.',
+                bullets: [
+                    'RLHF Side-by-Side (SxS) evaluation modules',
+                    'Multi-stage consensus calculation algorithms',
+                    'Red-teaming & agent failure intervention checkpoints'
+                ],
+                img: 'https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=1000&q=80'
+            },
+            '04': {
+                tag: 'ENGINE-04 ARCHITECTURE',
+                title: 'Device Testing & Latency Analytics Engine',
+                desc: 'Connects directly to an on-demand hardware lab of 3,000+ real mobile, desktop, and smart devices for real-time model latency and app performance benchmarking.',
+                bullets: [
+                    '3,000+ Real device configurations on-demand',
+                    'Automated bandwidth & latency profiling tools',
+                    'Model response-speed & error-rate benchmarking'
+                ],
+                img: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1000&q=80'
+            }
+        };
+
+        // Mobile Menu Toggle
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileDrawer = document.getElementById('mobile-drawer');
+        mobileBtn.addEventListener('click', () => {
+            mobileDrawer.classList.toggle('hidden');
+        });
+
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => mobileDrawer.classList.add('hidden'));
+        });
+
+        // Filter Functionality
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const categoryCards = document.querySelectorAll('.category-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => {
+                    b.classList.remove('bg-sky-600', 'text-white');
+                    b.classList.add('bg-slate-900', 'text-slate-400');
+                });
+                btn.classList.remove('bg-slate-900', 'text-slate-400');
+                btn.classList.add('bg-sky-600', 'text-white');
+
+                const filter = btn.getAttribute('data-filter');
+                categoryCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Engine Tabs Switcher
+        const engineTabs = document.querySelectorAll('.engine-tab');
+        engineTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                engineTabs.forEach(t => {
+                    t.classList.remove('bg-sky-600', 'text-white', 'shadow-lg');
+                    t.classList.add('bg-slate-900', 'text-slate-400');
+                });
+                tab.classList.remove('bg-slate-900', 'text-slate-400');
+                tab.classList.add('bg-sky-600', 'text-white', 'shadow-lg');
+
+                const id = tab.getAttribute('data-engine');
+                const data = engineData[id];
+
+                document.getElementById('engine-tag').innerText = data.tag;
+                document.getElementById('engine-title').innerText = data.title;
+                document.getElementById('engine-desc').innerText = data.desc;
+                document.getElementById('engine-img').src = data.img;
+
+                const bulletsContainer = document.getElementById('engine-bullets');
+                bulletsContainer.innerHTML = '';
+                data.bullets.forEach(bullet => {
+                    const div = document.createElement('div');
+                    div.className = 'flex items-center gap-3 text-xs text-slate-300';
+                    div.innerHTML = `<span class="h-2 w-2 rounded-full bg-sky-400"></span>${bullet}`;
+                    bulletsContainer.appendChild(div);
+                });
+            });
+        });
+
+        // Modal Functionality
+        function openModal(id) {
+            const spec = categorySpecs[id];
+            if (!spec) return;
+
+            document.getElementById('modal-code').innerText = spec.code;
+            document.getElementById('modal-title').innerText = spec.title;
+            document.getElementById('modal-desc').innerText = spec.desc;
+            document.getElementById('modal-deliverables').innerText = spec.deliverables;
+            document.getElementById('modal-hardware').innerText = spec.hardware;
+            document.getElementById('modal-sla').innerText = spec.sla;
+
+            document.getElementById('spec-modal').classList.remove('hidden');
+            document.body.classList.add('modal-active');
+        }
+
+        function closeModal() {
+            document.getElementById('spec-modal').classList.add('hidden');
+            document.body.classList.remove('modal-active');
+        }
+
+        // Estimator Tool
+        const calcCategory = document.getElementById('calc-category');
+        const calcVolume = document.getElementById('calc-volume');
+        const calcResult = document.getElementById('calc-result');
+
+        function updateEstimator() {
+            const cat = calcCategory.value;
+            const vol = calcVolume.value;
+
+            let timeline = '48 Hours Ramp-Up';
+            let accuracy = '98.5%';
+
+            if (vol === 'medium') timeline = '3–5 Days Full Pod Deployment';
+            if (vol === 'large') timeline = '7–10 Days Managed Workforce Scale';
+
+            if (cat === 'annotation' || cat === 'genai') accuracy = '99.2% Dual-Blind QA Target';
+
+            calcResult.innerText = `${timeline} | ${accuracy}`;
+        }
+
+        calcCategory.addEventListener('change', updateEstimator);
+        calcVolume.addEventListener('change', updateEstimator);
+
+        // Form Submit
+        document.getElementById('proposal-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            document.getElementById('proposal-form').reset();
+            document.getElementById('form-success').classList.remove('hidden');
+            setTimeout(() => {
+                document.getElementById('form-success').classList.add('hidden');
+            }, 6000);
+        });
+    </script>
+</body>
+</html>
